@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Login App</string>
+    <string name="ui_login">UI Login</string>
+    <string name="type_your_emails">Type your Emails</string>
 </resources>
