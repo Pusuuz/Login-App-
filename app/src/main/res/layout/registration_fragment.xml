@@ -39,7 +39,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/firstName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,13 +59,14 @@
         app:layout_constraintTop_toBottomOf="@+id/secondtxt">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstNameField"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/secondName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,16 +83,17 @@
         app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/firstName">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/secondNameField"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+        android:id="@+id/email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,15 +110,17 @@
         app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/secondName">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -135,9 +139,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/email">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordField"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
