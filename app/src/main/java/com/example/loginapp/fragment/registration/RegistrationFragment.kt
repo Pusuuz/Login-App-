@@ -46,20 +46,56 @@ class RegistrationFragment: Fragment(R.layout.registration_fragment) {
 
     private fun registerUser(){
 
-        val firstName = binding.firstNameField.text ?: "Unknown"
-        val secondName = "Ochilov"
-        val email = "usuf_pussuz@mail.uz"
-        val password = "12345"
-
-        // Write a message to the database
-        val database = Firebase.database.getReference("users")
+        val firstName = binding.firstNameField.text.toString()
+        val secondName = binding.secondNameField.text.toString()
+        val email = binding.emailField.text.toString()
+        val password = binding.passwordField.text.toString()
 
 
-        database.child(firstName.toString()).apply {
-            child("email").setValue(email)
-            child("secondName").setValue(secondName)
-            child("password").setValue(password)
+        var hasError: Boolean
+
+        binding.firstName.error = null
+        binding.secondName.error= null
+        binding.email.error= null
+        binding.password.error= null
+        hasError = false
+
+
+
+        if (binding.firstNameField.text.toString()==""){
+            binding.firstName.error = "ewfwefwefe"
+            hasError = true
         }
+        if (binding.secondNameField.text.toString()==""){
+            binding.secondName.error = "fwfwefwf"
+            hasError=true
+        }
+        if (binding.emailField.text.toString()==""){
+            binding.email.error = "fwfwefwf"
+            hasError=true
+
+        }
+        if (binding.passwordField.text.toString()==""){
+            binding.password.error = "fwfwefwf"
+            hasError=true
+
+        }
+
+
+        if (!hasError){
+            // Write a message to the database
+            val database = Firebase.database.getReference("users")
+
+
+            database.child(firstName).apply {
+                child("email").setValue(email)
+                child("secondName").setValue(secondName)
+                child("password").setValue(password)
+            }
+
+
+        }
+
 
 
     }
