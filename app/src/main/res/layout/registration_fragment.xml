@@ -9,6 +9,19 @@
     android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/addImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@null"
+        android:src="@drawable/add_image"
+        android:tintMode="src_atop"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:tint="#43021843" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

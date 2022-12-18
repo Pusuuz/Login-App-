@@ -1,11 +1,13 @@
 package com.example.loginapp.fragment.registration
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.loginapp.MainActivity
 import com.example.loginapp.R
 import com.example.loginapp.databinding.RegistrationFragmentBinding
 import com.google.firebase.database.ktx.database
@@ -39,8 +41,15 @@ class RegistrationFragment: Fragment(R.layout.registration_fragment) {
             registerUser()
         }
 
+ binding.addImageButton.setOnClickListener {
+     openGalleryForImage()
+ }
 
-
+    }
+    private fun openGalleryForImage() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, 100)
     }
 
 

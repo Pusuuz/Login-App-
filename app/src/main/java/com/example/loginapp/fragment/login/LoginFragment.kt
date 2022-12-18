@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.loginapp.R
 import com.example.loginapp.databinding.LoginFragmentBinding
 import com.example.loginapp.databinding.RegistrationFragmentBinding
@@ -39,7 +41,6 @@ class LoginFragment: Fragment(R.layout.login_fragment){
 
             val database = Firebase.database.getReference("users")
 
-//            val email = database.child("users").get()
 
 
             database.get().addOnSuccessListener {
@@ -53,6 +54,14 @@ class LoginFragment: Fragment(R.layout.login_fragment){
 
                     if (user?.email == binding.emailField.text.toString() && user.password == binding.passwordField.text.toString()){
                         Toast.makeText(requireContext(), "Successfuly Logined", Toast.LENGTH_SHORT).show()
+
+
+                        val data = bundleOf(
+                            "second_name" to user.secondName,
+                            "email" to user.email
+                        )
+
+                        findNavController().navigate(R.id.action_loginFragment_to_finallFragment, data)
                     }
                 }
 
