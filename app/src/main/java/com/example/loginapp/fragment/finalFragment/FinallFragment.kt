@@ -1,14 +1,15 @@
 package com.example.loginapp.fragment.finalFragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.loginapp.R
 import com.example.loginapp.databinding.FinallFragmentBinding
-
-import com.example.loginapp.databinding.WelcomeFragmentBinding
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 
 class FinallFragment: Fragment(R.layout.finall_fragment) {
 
@@ -33,12 +34,19 @@ class FinallFragment: Fragment(R.layout.finall_fragment) {
 
         binding.Somebody.text = secondName
 
+        val firebaseStorageImage = FirebaseStorage.getInstance().reference.child("images/${email}.jpg")
+
+        firebaseStorageImage.downloadUrl.addOnSuccessListener {
+
+            Picasso.get().load(it).into(binding.circleImageView)
+
+        }
+            .addOnFailureListener {
+                Log.d("afafakfjj", "error: ${it.message}")
+            }
 
 
     }
-
-
-
 
 
 

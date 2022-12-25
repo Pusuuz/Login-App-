@@ -23,41 +23,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        Log.d("huhuhuh", requestCode.toString())
-
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            Log.d("huhuhuh", data?.data.toString())
-
-            uploadImageToFirebase(data?.data)
-
-        }
-
-    }
 
 
-    private fun uploadImageToFirebase(fileUri: Uri?) {
-
-        if (fileUri != null) {
-
-            val fileName = UUID.randomUUID().toString() +".jpg"
-
-            val database = FirebaseDatabase.getInstance()
-            val refStorage = FirebaseStorage.getInstance().reference.child("images/$fileName")
-
-            refStorage.putFile(fileUri)
-                .addOnSuccessListener { taskSnapshot ->
-                    taskSnapshot.storage.downloadUrl.addOnSuccessListener {
-
-                        val imageUrl = it.toString()
-                        Log.d("huhuhuh", imageUrl)
-                    }
-                }
-
-                .addOnFailureListener { e ->
-                    print(e.message)
-                }
-        }
-    }
 }

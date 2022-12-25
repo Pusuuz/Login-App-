@@ -37,6 +37,8 @@ android {
 }
 
 dependencies {
+    //picaso
+    implementation 'com.squareup.picasso:picasso:2.8'
     //image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     //FireBase
