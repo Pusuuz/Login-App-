@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Login App</string>
-    <string name="ui_login">UI Login</string>
-    <string name="type_your_emails">Type your Emails</string>
+    <string name="app_name">CameraXApp</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="start_capture">Start Capture</string>
+    <string name="stop_capture">Stop Capture</string>
 </resources>

@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_registrationFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseFragment"
@@ -35,5 +38,13 @@
     <fragment
         android:id="@+id/finallFragment"
         android:name="com.example.loginapp.fragment.finalFragment.FinallFragment"
-        android:label="FinallFragment" />
+        android:label="FinallFragment" >
+        <action
+            android:id="@+id/action_finallFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.example.loginapp.fragment.cameraFragment.CameraFragment"
+        android:label="CameraFragment" />
 </navigation>

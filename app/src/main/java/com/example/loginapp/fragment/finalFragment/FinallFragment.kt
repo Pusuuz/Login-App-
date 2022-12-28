@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.loginapp.R
 import com.example.loginapp.databinding.FinallFragmentBinding
 import com.google.firebase.storage.FirebaseStorage
@@ -45,6 +46,9 @@ class FinallFragment: Fragment(R.layout.finall_fragment) {
                 Log.d("afafakfjj", "error: ${it.message}")
             }
 
+        binding.circleImageView.setOnClickListener(){
+           findNavController().navigate(R.id.action_finallFragment_to_cameraFragment)
+        }
 
     }
 
