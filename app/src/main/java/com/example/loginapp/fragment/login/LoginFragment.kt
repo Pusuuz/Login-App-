@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.loginapp.R
+import com.example.loginapp.data.User
 import com.example.loginapp.databinding.LoginFragmentBinding
 import com.example.loginapp.databinding.RegistrationFragmentBinding
 import com.google.firebase.database.ktx.database
@@ -74,6 +75,4 @@ class LoginFragment: Fragment(R.layout.login_fragment){
 }
 
 
-data class User(val email: String, val secondName:String, val password:String){
-    constructor(): this("","", "")
-}
+
