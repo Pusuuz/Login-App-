@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loginapp.R
@@ -57,6 +58,7 @@ class FinallFragment: Fragment(R.layout.finall_fragment) {
 
             val adapter = MainAdapter(users) {
                 // сделаем позже (клик на элемент списка)
+                findNavController().navigate(R.id.action_finallFragment_to_chatFragment)
             }
 
             binding.rv.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
