@@ -42,9 +42,16 @@
         <action
             android:id="@+id/action_finallFragment_to_cameraFragment"
             app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_finallFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.example.loginapp.fragment.cameraFragment.CameraFragment"
         android:label="CameraFragment" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.loginapp.fragment.Chat.ChatFragment"
+        android:label="ChatFragment" />
 </navigation>
