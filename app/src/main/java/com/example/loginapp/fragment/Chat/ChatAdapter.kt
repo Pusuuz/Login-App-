@@ -10,7 +10,7 @@ import com.example.loginapp.R
 import com.example.loginapp.data.Message
 
 
-class ChatAdapter(val context: Context, val messages: List<Message>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class ChatAdapter(val context: Context, var messages: List<Message>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
 
     companion object {

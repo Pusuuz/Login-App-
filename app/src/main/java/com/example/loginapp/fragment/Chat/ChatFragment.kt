@@ -26,7 +26,8 @@ class ChatFragment: Fragment (R.layout.chat_fragment){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dataFromFirebase = listOf(
+
+        val dataFromFirebase = mutableListOf(
             Message("Hello Madamin!", 0),
             Message("How are you?", 0),
             Message("Hello bro!", 1),
@@ -36,6 +37,36 @@ class ChatFragment: Fragment (R.layout.chat_fragment){
 
         val chatAdapter = ChatAdapter(requireContext(),dataFromFirebase)
         binding.rv.adapter = chatAdapter
+
+
+
+            binding.sendButton.setOnClickListener{
+
+                if (binding.emailField.text.toString().isNotEmpty()){
+                    sendMessage(dataFromFirebase,chatAdapter)
+                    binding.emailField.text?.clear()
+                }
+            }
+
+
+
+
+    }
+    private fun sendMessage(data:MutableList<Message>, chatAdapter: ChatAdapter){
+        with(binding){
+
+        val new = Message(emailField.text.toString(),1)
+
+        data.add(new)
+
+        chatAdapter.messages = data
+
+        val posStart = data.size
+        val size = data.size
+
+        chatAdapter.notifyItemRangeInserted(posStart,size)
+        }
+
     }
 
 }
