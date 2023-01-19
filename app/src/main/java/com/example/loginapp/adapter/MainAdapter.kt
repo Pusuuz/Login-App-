@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loginapp.R
 import com.example.loginapp.data.User
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
 
@@ -39,10 +40,13 @@ class MainAdapter(val data: List<User>, val clicks: (User) -> Unit): RecyclerVie
         val myName = viewHolder.itemView.findViewById<TextView>(R.id.userName)
 
 
+      if (!data[position].image_url.isNullOrEmpty()) {
 
-//        Picasso.get()
-//            .load(url)
-//            .into(myImage)
+                Picasso.get()
+                    .load(data[position].image_url)
+                    .into(myImage)
+        }
+
 
 
 

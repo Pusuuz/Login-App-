@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.loginapp.R
+import com.example.loginapp.data.DataStore
 import com.example.loginapp.data.User
 import com.example.loginapp.databinding.LoginFragmentBinding
 import com.example.loginapp.databinding.RegistrationFragmentBinding
@@ -37,6 +38,8 @@ class LoginFragment: Fragment(R.layout.login_fragment){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val dataStore = DataStore(requireContext())
+
 
         binding.LoginButton.setOnClickListener {
 
@@ -61,12 +64,17 @@ class LoginFragment: Fragment(R.layout.login_fragment){
                             "second_name" to user.secondName,
                             "email" to user.email
                         )
+                        dataStore.setSecondName(user.secondName)
+                        dataStore.setEmail(user.email)
+                        dataStore.setLoggedIn(true)
 
                         findNavController().navigate(R.id.action_loginFragment_to_finallFragment, data)
                     }
                 }
 
             }.addOnFailureListener{
+                DataStore(requireContext()).setLoggedIn(false)
+
                 Log.e("uhihiuhiu", "Error getting data", it)
             }
         }

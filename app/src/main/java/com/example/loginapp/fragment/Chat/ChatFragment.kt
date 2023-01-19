@@ -36,17 +36,17 @@ class ChatFragment: Fragment (R.layout.chat_fragment){
         )
 
         val chatAdapter = ChatAdapter(requireContext(),dataFromFirebase)
+
         binding.rv.adapter = chatAdapter
 
-
-
-            binding.sendButton.setOnClickListener{
+        binding.sendButton.setOnClickListener{
 
                 if (binding.emailField.text.toString().isNotEmpty()){
                     sendMessage(dataFromFirebase,chatAdapter)
                     binding.emailField.text?.clear()
+                    binding.rv.scrollToPosition(dataFromFirebase.size -1)
                 }
-            }
+        }
 
 
 

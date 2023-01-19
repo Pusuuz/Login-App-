@@ -25,6 +25,8 @@ class RegistrationFragment: Fragment(R.layout.registration_fragment) {
     private var _binding: RegistrationFragmentBinding? = null
     private val binding get() = _binding!!
 
+    var imageUrl: String? = null
+
 
     private val NAME_PATTERN: Pattern = Pattern.compile("^[a-zA-Z0-9\\p{L}+_ -]+\$")
 
@@ -59,11 +61,13 @@ class RegistrationFragment: Fragment(R.layout.registration_fragment) {
 
 
         binding.button.setOnClickListener {
-           if (isCorrectFields()) registerUser()
+//           if (isCorrectFields())
+               registerUser()
         }
 
         binding.addImageButton.setOnClickListener {
-           if(isCorrectFields()) openGalleryForImage()
+//           if(isCorrectFields())
+               openGalleryForImage()
         }
     }
 
@@ -146,8 +150,10 @@ class RegistrationFragment: Fragment(R.layout.registration_fragment) {
 
                     taskSnapshot.storage.downloadUrl.addOnSuccessListener {
 
-                        val imageUrl = it.toString()
-                        Log.d("huhuhuh", imageUrl)
+                        val url = it.toString()
+
+                        imageUrl = url
+                        Log.d("huhuhuh", url)
                     }
                 }
 
@@ -169,11 +175,13 @@ class RegistrationFragment: Fragment(R.layout.registration_fragment) {
          // Write a message to the database
             val database = Firebase.database.getReference("users")
 
+            Log.d("sdfdsfadsfgsagds",imageUrl.toString())
 
             database.child(firstName).apply {
                 child("email").setValue(email)
                 child("secondName").setValue(secondName)
                 child("password").setValue(password)
+                child("image_url").setValue(imageUrl)
             }
 
 

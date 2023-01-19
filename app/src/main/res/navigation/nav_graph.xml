@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/finallFragment">
+    app:startDestination="@id/chooseFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_chooseFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_chooseFragment_to_finallFragment"
+            app:destination="@id/finallFragment" />
     </fragment>
     <fragment
         android:id="@+id/finallFragment"
